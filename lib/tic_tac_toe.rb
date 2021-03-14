@@ -63,7 +63,7 @@ class TicTacToe
 
          token_1 == token_2 && token_2 == token_3 && token_1 != " "
 
-         
+
      end
 
   def full?
