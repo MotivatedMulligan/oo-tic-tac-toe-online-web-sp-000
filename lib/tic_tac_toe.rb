@@ -25,11 +25,11 @@ class TicTacToe
   def input_to_index(input)
   index = input.to_i - 1
   end
-  def move(index, token= "X")
-  @board[index] = token
+  def move(index, current_player = "X")
+  @board[index] = current_player
   end
   def position_taken?(index)
-    @board[index] !=" "
+    @board[index] != " "
   end
   def valid_move?(index)
     index.between?(0,8) && !position_taken?(index)
@@ -52,18 +52,21 @@ class TicTacToe
   end
   def won?
 
-    WIN_COMBINATIONS.find do |win_combo|
-         index_1 = win_combo[0]
-         index_2 = win_combo[1]
-         index_3 = win_combo[2]
-
-         token_1 = @board[index_1]
-         token_2 = @board[index_2]
-         token_3 = @board[index_3]
-
-         token_1 == token_2 && token_2 == token_3 && token_1 != " "
-
-
+    WIN_COMBINATIONS.find { |win_combo|
+         index_0 = win_combo[0]
+         index_1= win_combo[1]
+         index_2 = win_combo[2]
+         
+         position_1 = @board[index_0]
+         position_2 = @board[index_1]
+         position_3 = @board[index_2]
+         if position_1 == "X" && position_2 == "X" && position_3 == "X"
+             return win_combo
+           elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+             return win_combo
+           end
+         }
+         return false
      end
 
   def full?
