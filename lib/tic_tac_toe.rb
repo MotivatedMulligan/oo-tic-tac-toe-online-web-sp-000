@@ -25,7 +25,7 @@ WIN_COMBINATIONS = [
   index = input.to_i - 1
   end
   def move
-    
+
   end
 binding 'pry'
 end
