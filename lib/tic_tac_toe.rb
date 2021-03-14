@@ -41,9 +41,15 @@ class TicTacToe
     turn_count.even? ? "X" : "O"
     # turn_count % 2 == 0 ? "X" : "O" Other option for writting this.
   end
-
   def turn
+    index = input_to_index[gets.chomp]
+    if valid_move?(index)
+      move(index, current_player)
+      display_board
+    else
+      turn
   end
+
   def won?
   end
   def full?
