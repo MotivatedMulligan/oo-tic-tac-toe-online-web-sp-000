@@ -24,8 +24,8 @@ WIN_COMBINATIONS = [
   def input_to_index(input)
   index = input.to_i - 1
   end
-  def move
-
+  def move(index, play_token = "X")
+  @board[index] = play_token
   end
-binding 'pry'
+
 end
