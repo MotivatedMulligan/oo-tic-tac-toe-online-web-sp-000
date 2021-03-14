@@ -38,10 +38,10 @@ class TicTacToe
     @board.count {|space| space == "X" || space == "O"}
   end
   def current_player
-    turn_count.even? ? "X" : "O" 
+    turn_count.even? ? "X" : "O"
     # turn_count % 2 == 0 ? "X" : "O" Other option for writting this.
   end
-  
+
   def turn
   end
   def won?
