@@ -25,7 +25,7 @@ class TicTacToe
   def input_to_index(input)
   index = input.to_i - 1
   end
-  def move(index, play_token = "X")
+  def move(index, player = "X")
   @board[index] = play_token
   end
   def position_taken?(index)
@@ -62,6 +62,8 @@ class TicTacToe
          token_3 = @board[index_3]
 
          token_1 == token_2 && token_2 == token_3 && token_1 != " "
+
+         
      end
 
   def full?
@@ -73,6 +75,7 @@ class TicTacToe
 
   def over?
     won? || draw?
+    
   end
   def winner
     if win_combo = won?
