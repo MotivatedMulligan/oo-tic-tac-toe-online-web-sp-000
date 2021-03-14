@@ -11,8 +11,8 @@ class TicTacToe
    [0,4,8],
    [2,4,6]
   ]
-  def initialize#(board = nil)
-  @board = Array.new(9, " ")#[" "," "," "," "," "," "," "," "," "] #board || Array.new(9, " ")
+  def initialize
+  @board = Array.new(9, " ")
   end
 
   def display_board
@@ -34,9 +34,10 @@ class TicTacToe
   def valid_move?(index)
     index.between?(0,8) && !position_taken?(index)
   end
-
   def turn_count
+    @board.count {|space| space == "X" || space == "O"}
   end
+  
   def current_player
   end
   def turn
