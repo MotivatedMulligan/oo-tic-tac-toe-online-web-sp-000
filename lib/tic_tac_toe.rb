@@ -51,17 +51,46 @@ class TicTacToe
     end
   end
   def won?
-    WIN_COMBINATIONS.rassoc(play_token)
-    #to_a
-  end
+  
+    WIN_COMBINATIONS.find do |win_combo| 
+         index_1 = win_combo[0]
+         index_2 = win_combo[1]
+         index_3 = win_combo[2]
+
+         token_1 = @board[index_1] 
+         token_2 = @board[index_2]
+         token_3 = @board[index_3]
+
+         token_1 == token_2 && token_2 == token_3 && token_1 != " "
+     end
+  
   def full?
+    turn_count >= 9
   end
   def draw?
+    !won? && full?
   end
+  
   def over?
+    won? || draw?
   end
   def winner
+    if win_combo = won?
+      @board[win_combo[0]]
+    end
   end
 
+  def play
+          puts "Welcome to Tic Tac Toe!"
+          display_board
+          until over?
+              turn
+          end
+          if draw?
+              puts "Cat's Game!"
+          else
+              puts "Congratulations #{winner}!"
+          end
+  end
 
 end
