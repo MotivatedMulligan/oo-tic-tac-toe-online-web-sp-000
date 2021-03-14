@@ -75,7 +75,7 @@ class TicTacToe
 
   def over?
     won? || draw?
-    
+
   end
   def winner
     if win_combo = won?
