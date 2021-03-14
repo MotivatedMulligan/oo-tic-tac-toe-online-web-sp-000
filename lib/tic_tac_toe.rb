@@ -50,8 +50,9 @@ class TicTacToe
       turn
     end
   end
-
   def won?
+    WIN_COMBINATIONS.rassoc(play_token)
+    #to_a
   end
   def full?
   end
