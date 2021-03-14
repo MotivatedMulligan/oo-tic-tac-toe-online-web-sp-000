@@ -51,26 +51,26 @@ class TicTacToe
     end
   end
   def won?
-  
-    WIN_COMBINATIONS.find do |win_combo| 
+
+    WIN_COMBINATIONS.find do |win_combo|
          index_1 = win_combo[0]
          index_2 = win_combo[1]
          index_3 = win_combo[2]
 
-         token_1 = @board[index_1] 
+         token_1 = @board[index_1]
          token_2 = @board[index_2]
          token_3 = @board[index_3]
 
          token_1 == token_2 && token_2 == token_3 && token_1 != " "
      end
-  
+
   def full?
     turn_count >= 9
   end
   def draw?
     !won? && full?
   end
-  
+
   def over?
     won? || draw?
   end
